@@ -55,31 +55,65 @@ def calcular_estadisticas(inventario):
         print(f"Cantidad total de productos: {total_producto}")
 
 def menu():
-    inventario = []
+    cupos = 5
+    inventario = ['vacio'] * cupos
 
-    while True:
-        print("Menú")
+    opcion = 1
+    print("Bienvenido al sistema de inventario")
+    while opcion < 4:
         print("1. Agregar producto")
         print("2. Mostrar inventario")
         print("3. Calcular estadisticas")
         print("4. Salir")
+        opcion = int(input("Escoge una opcion\n"))
 
-        opcion = input("Seleccione una opción: ")
-        if opcion == "1":
-            agregar_producto(inventario)
+        match opcion:
+            case 1:
+                if inventario.count('vacio') > 0:
+                    producto = input("Ingresar un producto\n").upper()
+                    if producto in inventario:
+                        print("Este producto ya esta ingresado")
+                    else:
+                        ubicación = inventario.index("vacio")
+                        inventario[ubicación] = producto
+                        print(f"producto ingresando: {producto}")
+                else:
+                    print("Inventario lleno!!")
+            case 2:
+                def mostrar_inventario():
+                    for i, carro in enumerate(inventario, start=1):
+                        print(f"{i}. {producto}")
+                if len(inventario) > 0:
+                    producto = input("Ingresa el producto\n").upper()
+                    if producto in inventario:
+                        inventario.remove(producto)
+                        print(f"producto retirado: {producto}")
+                    else:
+                        print(f"{producto} no esta ingresado")
+                else:
+                    print("Inventario lleno!!")
+            case 3:
+                print(inventario)
+            case _:
+                print("Adios!!")
+                break
 
-        elif opcion == "2":
-            mostrar_inventario(inventario)
+        # opcion = input("Seleccione una opción: ")
+        # if opcion == "1":
+        #     agregar_producto(inventario)
 
-        elif opcion == "3":
-            calcular_estadisticas(inventario)
+        # elif opcion == "2":
+        #     mostrar_inventario(inventario)
 
-        elif opcion == "4":
-            print("Adios!")
-            break
+        # elif opcion == "3":
+        #     calcular_estadisticas(inventario)
 
-        else:
-            print("Opcion invalida, intente de nuevo")
+        # elif opcion == "4":
+        #     print("Adios!")
+        #     break
+
+        # else:
+        #     print("Opcion invalida, intente de nuevo")
 
 menu()
 

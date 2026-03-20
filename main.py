@@ -26,4 +26,9 @@ costo_total = precio * cantidad
 
 # Mostrar resultados
 
+print("Resumen del producto registrado:")
 print("producto", nombre, "| precio:", precio, "| cantidad:" , cantidad, " | Total:" , costo_total)
+
+# Este programa solicita al usuario el nombre, precio y cantidad de un producto.
+# Luego calcula el costo total multiplicando el precio por la cantidad
+# y muestra el resultado en la consola.
