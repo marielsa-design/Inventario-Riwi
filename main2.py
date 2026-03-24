@@ -1,4 +1,11 @@
-inventario = []
+def mostrar_inventario(inventario):
+    if len(inventario) == 0:
+        print(f"El inventario esta vacio")
+    else:
+        print(f"Inventario: ")
+    for i, producto in enumerate(inventario):
+        print(f"Producto: {producto['nombre']} | Precio: {producto['precio']} | Cantidad: {producto['cantidad']}")
+
 
 # def agregar_producto(inventario):
 #     nombre = input("Ingrese el nombre del producto: ")
@@ -30,8 +37,14 @@ inventario = []
 
 def menu():
     cupos = 5
-    inventario = ['vacio'] * cupos
+    inventario = [{
+    'nombre' :
+    'precio' :
+    'cantidad' :
+}]
 
+
+    menu
     opcion = 0
     print("Bienvenido al sistema de inventario")
     while opcion < 4:
@@ -54,13 +67,7 @@ def menu():
                 else:
                     print("Inventario lleno!!")
             case 2:
-                def mostrar_inventario(inventario):
-                    if len(inventario) == 0:
-                        print(f"El inventario esta vacio")
-                    else:
-                        print(f"Inventario: ")
-                    for producto in inventario:
-                        print(f"Producto: {producto['nombre']} | Precio: {producto['precio']} | Cantidad: {producto['cantidad']}")
+                mostrar_inventario(inventario)
             case 3:
                 def calcular_estadisticas(inventario):
                     if len(inventario) == 0:
@@ -78,8 +85,8 @@ def menu():
             case 4:
                 print("Adios!!")
                 break
-
 menu()
+
 
 # Este programa permite gestionar un inventario básico utilizando listas y diccionarios.
 # Se aplican estructuras de control como condicionales y bucles para validar datos,
