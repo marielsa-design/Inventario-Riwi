@@ -10,7 +10,7 @@ inventario = [
         "cantidad": 15
     },
     {
-        "nombre": "Ratón",
+        "nombre": "Mouse",
         "precio": 500,
         "cantidad": 15
     }
@@ -20,14 +20,14 @@ inventario = [
 def menu():
     opcion = 0
     print("Bienvenido al sistema de inventario")
-    while opcion < 4:
+    while opcion < 6:
         print("1. Agregar producto") #listo
-        print("2. Mostrar inventario")
-        print('3. Buscar el producto')
-        print('4. Actualizar producto')
-        print('5. Eliminar el producto')
-        print("6. Calcular estadisticas")
-        print("7. Salir")
+        print("2. Mostrar inventario") #listo
+        print('3. Buscar el producto') #progreso #No se olvide el "buscar_producto" de diccionario
+        print('4. Actualizar producto') #progreso
+        print('5. Eliminar el producto') #progreso
+        print("6. Calcular estadisticas") #listo
+        print("7. Salir") #listo
         opcion = int(input("Escoge una opcion\n"))
         match opcion:
             case 1:
@@ -53,17 +53,13 @@ def menu():
                         print(f"Producto: {producto['nombre']} | Precio: {producto['precio']} | Cantidad: {producto['cantidad']}")
             # case 3:
             # case 4:
-            # case 5:
-            #     if inventario.count('vacio')!= nombre
-            #         nombre= input('Ingresa el nombre de producto\n').upper()
-            #         if nombre in inventario:
-            #             ubicación= inventario.index(nombre)
-            #             inventario[ubicación]= 'vacio'
-            #             print(f'producto retirado: {nombre}')
-            #         else:
-            #             print(f'el producto de {nombre} no esta ingresado')
-            #     else:
-            #         print(f'inventario vacio!!!')
+            case 5:
+                for i in inventario:
+                    print(i)
+                nombre=input("Nombre de producto que quieres eliminar: ")
+                print("Producto eliminado correctamente")
+                inventario.remove(nombre)
+            
 
             case 6:
                 if len(inventario) == 0:
