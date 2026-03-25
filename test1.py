@@ -1,10 +1,8 @@
-cesta = {}
-continuar = ()
-while continuar:
-    item = (input("nombre: "))
-    precio = float(input("Precio: "))
-    cesta[item] = precio
-    break
+# import funciones
+# import datetime
 
-# Mostrar total
-print(continuar)
+# funciones.saludar('lyan')
+
+
+# print(funciones.saludar(25))
+# print(datetime.datetime.now())
