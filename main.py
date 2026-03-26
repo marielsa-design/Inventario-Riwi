@@ -23,9 +23,9 @@ def menu():
     while opcion < 6:
         print("1. Agregar producto") #listo
         print("2. Mostrar inventario") #listo
-        print('3. Buscar el producto') #progreso #No se olvide el "buscar_producto" de diccionario
-        print('4. Actualizar producto') #progreso
-        print('5. Eliminar el producto') #progreso
+        print('3. Buscar el producto') #listo
+        print('4. Actualizar producto') #listo
+        print('5. Eliminar el producto') #listo
         print("6. Calcular estadisticas") #listo
         print("7. Salir") #listo
         opcion = int(input("Escoge una opcion\n"))
@@ -51,16 +51,42 @@ def menu():
                     print(f"Inventario: ")
                     for i, producto in enumerate(inventario):
                         print(f"Producto: {producto['nombre']} | Precio: {producto['precio']} | Cantidad: {producto['cantidad']}")
-            # case 3:
-            # case 4:
+            case 3:
+                nombre = input("Nombre de producto: ")
+                producto_encontrado = None
+
+                for i, producto in enumerate(inventario):
+                    if producto["nombre"].lower() == nombre.lower():
+                        producto_encontrado = producto
+                        break
+
+                if producto_encontrado is not None:
+                    print(f"Producto encontrado :")
+                    print(producto_encontrado)
+                else:
+                    print("Producto no encontrado.")
+            case 4:
+                def buscar_producto(nombre):
+                    for producto in inventario:
+                        if producto["nombre"] == nombre:
+                            return producto
+                    return None
+                
+                nombre = input("Nombre del producto: ")
+                resultado = buscar_producto(nombre)
+                if resultado:
+                    print(f"producto encontrado: {resultado["nombre"]}")
+                    print(f"precio: {resultado["precio"]}")
+                    print(f"cantidad: {resultado["cantidad"]}")
+                    print(f"valor total en inventario: {resultado["precio"] * resultado["cantidad"]}")
+                else:
+                    print("producto no encontrado.")
             case 5:
                 for i in inventario:
                     print(i)
                 nombre=input("Nombre de producto que quieres eliminar: ")
                 print("Producto eliminado correctamente")
-                inventario.remove(nombre)
-            
-
+                inventario.pop(0)
             case 6:
                 if len(inventario) == 0:
                     print("No hay productos para calcular")
